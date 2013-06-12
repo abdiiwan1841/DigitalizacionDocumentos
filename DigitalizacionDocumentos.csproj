@@ -1,0 +1,250 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F454BCA9-5F45-4A1C-A0FD-EC1AC2534361}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DigitalizacionDocumentos</RootNamespace>
+    <AssemblyName>DigitalizacionDocumentos</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\dll\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="msgBox, Version=1.0.1704.38191, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\dll\msgBox.dll</HintPath>
+    </Reference>
+    <Reference Include="PGENL0001, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PGENL0001\bin\Release\PGENL0001.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Digitalizacion.aspx.cs">
+      <DependentUpon>Digitalizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Digitalizacion.aspx.designer.cs">
+      <DependentUpon>Digitalizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SinPermiso.aspx.cs">
+      <DependentUpon>SinPermiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SinPermiso.aspx.designer.cs">
+      <DependentUpon>SinPermiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucDatosCliente.ascx.cs">
+      <DependentUpon>ucDatosCliente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucDatosCliente.ascx.designer.cs">
+      <DependentUpon>ucDatosCliente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CDIProvider_MembershipService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CDIProvider_RoleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\Site.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="css\uploadify.css" />
+    <Content Include="Digitalizacion.aspx" />
+    <Content Include="img\1.jpeg" />
+    <Content Include="img\2.jpeg" />
+    <Content Include="img\agt_back.png" />
+    <Content Include="img\back.jpeg" />
+    <Content Include="img\back1.jpeg" />
+    <Content Include="img\back3.jpeg" />
+    <Content Include="img\can.jpeg" />
+    <Content Include="img\can1.jpeg" />
+    <Content Include="img\can3.jpeg" />
+    <Content Include="img\cancel.png" />
+    <Content Include="img\del.jpeg" />
+    <Content Include="img\denied.png" />
+    <Content Include="img\Find.png" />
+    <Content Include="img\jpgi.jpeg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logocofal004.JPG" />
+    <Content Include="img\no.jpg" />
+    <Content Include="img\ok.jpeg" />
+    <Content Include="img\ok1.jpeg" />
+    <Content Include="img\ok2.jpeg" />
+    <Content Include="img\ok3.jpeg" />
+    <Content Include="img\pdf.jpeg" />
+    <Content Include="img\pv.jpeg" />
+    <Content Include="img\up.jpeg" />
+    <Content Include="js\jquery-1.3.2.min.js" />
+    <Content Include="js\jquery.uploadify.js" />
+    <Content Include="js\uploader.swf" />
+    <Content Include="Login.aspx" />
+    <Content Include="SinPermiso.aspx" />
+    <Content Include="ucDatosCliente.ascx" />
+    <None Include="Web References\CDIProvider_RoleService\RoleService.disco" />
+    <None Include="Web References\CDIProvider_MembershipService\MembershipService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="js\uploader.fla" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="css\eggplant\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_flat_55_fafafa_40x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_gloss-wave_30_3d3644_500x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_highlight-soft_100_dcd9de_1x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_highlight-soft_100_eae6ea_1x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_highlight-soft_25_30273a_1x100.png" />
+    <Content Include="css\eggplant\images\ui-bg_highlight-soft_45_5f5964_1x100.png" />
+    <Content Include="css\eggplant\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\eggplant\images\ui-icons_734d99_256x240.png" />
+    <Content Include="css\eggplant\images\ui-icons_8d78a5_256x240.png" />
+    <Content Include="css\eggplant\images\ui-icons_a8a3ae_256x240.png" />
+    <Content Include="css\eggplant\images\ui-icons_ebccce_256x240.png" />
+    <Content Include="css\eggplant\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\eggplant\jquery-ui-1.8.18.custom.css" />
+    <Content Include="img\uploadify-cancel.png" />
+    <Content Include="js\jquery.MultiFile.js" />
+    <Content Include="js\script.js" />
+    <Content Include="Upload.ashx" />
+    <None Include="Web References\CDIProvider_MembershipService\MembershipService.wsdl" />
+    <None Include="Web References\CDIProvider_MembershipService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CDIProvider_RoleService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CDIProvider_RoleService\RoleService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://aapi01/cdiprovider/MembershipService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CDIProvider_MembershipService\</RelPath>
+      <UpdateFromURL>http://aapi01/cdiprovider/MembershipService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DigitalizacionDocumentos_CDIProvider_MembershipService_MembershipService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://aapi01/cdiprovider/RoleService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CDIProvider_RoleService\</RelPath>
+      <UpdateFromURL>http://aapi01/cdiprovider/RoleService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DigitalizacionDocumentos_CDIProvider_RoleService_RoleService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="uploads\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52459</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
