@@ -13,6 +13,11 @@ namespace DigitalizacionDocumentos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                hfUsuario.Value = Session["User"].ToString();
+                hfSub.Value = "FIN";
+            }
 
         }
         public void limpiar()
@@ -24,13 +29,14 @@ namespace DigitalizacionDocumentos
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
             try
-            {   
+            {
                 string codCliente = txtCodigoCliente.Text;
 
                 //--------------CONSULTA NUEVA
                 string qry = "";
+                string qryDocumentos = "";
 
                 if (!(codCliente.Trim().Length == 9) && !(codCliente.Trim().Length == 6))
                 {
@@ -44,8 +50,15 @@ namespace DigitalizacionDocumentos
                     else if (codCliente.Trim().Length == 6)
                         qry = String.Format("select '' AS NDC, gclcod as CLIENTE, gclnom as NOMBRE, ( gcldir||gclcod||gclciu ) as DIRECCION, gclnit as nit, GCLTX1 as EMAIL from intgen.fgen035 where gclcod='{0}'", codCliente);
 
+                    qryDocumentos = @"select d.seq_documento as nodocumento, d.compania as compania, d.sub as area, t.descripcion as tipo_documento
+                            from documento d inner join tipo_documento t on d.tipodocumento=t.idTipoDocumento
+                            where d.codClienteNDC='000207'";
+
                     DataTable dtDatosCliente = new DataTable();
                     dtDatosCliente = ad.RealizaConsulta(qry);
+
+                    DataTable dtDocumentosCliente = new DataTable();
+                    dtDocumentosCliente = ad.MySQL_RealizaConsulta(qryDocumentos);
 
 
                     if (dtDatosCliente != null && dtDatosCliente.Rows.Count > 0)
@@ -56,6 +69,10 @@ namespace DigitalizacionDocumentos
                             gvDatosCliente.DataSource = dtDatosCliente;
                             gvDatosCliente.DataBind();
                             pDatosCliente.Visible = true;
+
+                            gvDocumentosCliente.DataSource = dtDocumentosCliente;
+                            gvDocumentosCliente.DataBind();
+                            pDocumentosCliente.Visible = true;
                         }
                         //else
                         //{
@@ -74,6 +91,9 @@ namespace DigitalizacionDocumentos
             {
                 Exception exception = arg_146_0;
                 MsgBox1.alert("Error al cargar los datos " + exception.Message);
+            }
+            finally {
+                Session["clindc"] = txtCodigoCliente.Text;
             }
         }
 
@@ -100,14 +120,15 @@ namespace DigitalizacionDocumentos
 
             }
         }
-        
+
+       
 
         //protected void AjaxFileUpload1_UploadComplete(object sender, AjaxControlToolkit.AjaxFileUploadEventArgs e)
         //{
-        //     //AjaxFileUpload1.SaveAs(Server.MapPath("ArchivosSubidos/" + e.FileName));
+        //    //AjaxFileUpload1.SaveAs(Server.MapPath("ArchivosSubidos/" + e.FileName));
         //    try
         //    {
-        //        string path = String.Format("{0}{1}",MapPath("~/uploads/"),System.IO.Path.GetFileName(e.FileName));
+        //        string path = String.Format("{0}{1}", MapPath("~/uploads/"), System.IO.Path.GetFileName(e.FileName));
         //        AjaxFileUpload1.SaveAs(path);
         //    }
         //    catch (Exception ex)
@@ -115,12 +136,12 @@ namespace DigitalizacionDocumentos
         //        // grab exception here.
         //    }
 
-        //string nombre = e.FileName;
-        //int tamaño = e.FileSize;
-        //string Id = e.FileId;
-        
-        //string tipo = e.ContentType;
-    
+        //    string nombre = e.FileName;
+        //    int tamaño = e.FileSize;
+        //    string Id = e.FileId;
+
+        //    string tipo = e.ContentType;
+
         //}
     }
 }

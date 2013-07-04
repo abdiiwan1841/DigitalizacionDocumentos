@@ -68,12 +68,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Digitalizacion.aspx.cs">
       <DependentUpon>Digitalizacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Digitalizacion.aspx.designer.cs">
       <DependentUpon>Digitalizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -173,9 +187,15 @@
     <Content Include="css\eggplant\images\ui-icons_ebccce_256x240.png" />
     <Content Include="css\eggplant\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\eggplant\jquery-ui-1.8.18.custom.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="img\file.ico" />
     <Content Include="img\uploadify-cancel.png" />
+    <Content Include="index.aspx" />
+    <Content Include="js\CargaMultiple.js" />
     <Content Include="js\jquery.MultiFile.js" />
     <Content Include="js\script.js" />
+    <Content Include="js\upload.js" />
     <Content Include="Upload.ashx" />
     <None Include="Web References\CDIProvider_MembershipService\MembershipService.wsdl" />
     <None Include="Web References\CDIProvider_MembershipService\Reference.map">
