@@ -2,8 +2,23 @@
 <%@ Register TagPrefix="cc1" Namespace="BunnyBear" Assembly="msgBox" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <cc1:msgBox id="MsgBox1" style="Z-INDEX: 103; LEFT: 536px; POSITION: absolute; TOP: 184px" runat="server"></cc1:msgBox>
-
-    <div id = "panelCentral" align="center">
+<script type="text/javascript" language="javascript">
+    function fileUploadUpdate() {
+        $("#<%=FileUpload1.ClientID%>").fileUpload({
+            'uploader': 'js/uploader.swf',
+            'cancelImg': 'img/cancel.png',
+            'buttonText': 'Buscar archivos',
+            'script': 'Upload.ashx',
+            'scriptData': { 'usuarioOpera': usu, 'usuarioSub': sub, 'cia': cia, 'clindc': clindc },
+            'folder': 'uploads',
+            'fileDesc': 'Archivos de imagenes',
+            'fileExt': '*.jpg;*.jpeg;*.gif;*.png;*.pdf;*.bmp;*.rar;*.zip',
+            'multi': true,
+            'auto': false
+        });
+    }
+</script>
+    <div id = "panelCentral" align="center" class="article">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
 <asp:Panel ID="pVistaBusqueda" runat="server" 
@@ -12,8 +27,7 @@
         class="accordionContent" DefaultButton="btnBuscar">
     <div align = "center" style="height: 65px">
         <br />
-        <asp:TextBox ID="txtCodigoCliente" runat="server" Width="305px" 
-            ></asp:TextBox>        
+        <asp:TextBox ID="txtCodigoCliente" runat="server" Width="305px"></asp:TextBox>        
         <asp:TextBoxWatermarkExtender ID="tbweNDC" runat="server" 
             TargetControlID="txtCodigoCliente" 
             WatermarkText="Introduzca código de cliente o NDC" 
@@ -23,7 +37,7 @@
         <asp:Button ID="btnBuscar" class="boton" runat="server" Text="Busca" 
             Width="108px" OnClientClick="this.disabled = true; this.value = 'Buscando...';" 
             UseSubmitBehavior="False" onclick="btnBuscar_Click" 
-            CssClass="button medium verde" /> 
+            CssClass="boton" /> 
     </div>
 </asp:Panel>
 <asp:Label ID="lbError" runat="server" Font-Bold="True" 
@@ -33,7 +47,8 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
     <asp:Panel ID="pDatosCliente" runat="server"  
-        GroupingText="Datos Cliente" Visible="False" Width="80%" class="accordionContent">
+        GroupingText="Datos Cliente" Visible="False" Width="80%" 
+            class="accordionContent">
         <asp:GridView ID="gvDatosCliente" runat="server" AutoGenerateColumns="False" 
             CaptionAlign="Top" CellPadding="4" EmptyDataText="**NO EXISTEN DATOS**" 
             Font-Size="12px" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" 
@@ -79,7 +94,7 @@
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <HeaderStyle BackColor="#585858" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#2F588E" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <AlternatingRowStyle BackColor="White" />
         </asp:GridView>
@@ -104,16 +119,17 @@
                  <asp:BoundField DataField="area" HeaderText="AREA" NullDisplayText="N/D" />
                  <asp:BoundField DataField="tipo_documento" HeaderText="TIPO DOCUMENTO" 
                      NullDisplayText="N/D" />
+                 <asp:BoundField DataField="nombredoc" HeaderText="DOCUMENTO" />
                  <asp:TemplateField HeaderText="--">
                      <ItemTemplate>
-                         <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/img/file.ico" />
+                         <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/img/file3.png" />
                      </ItemTemplate>
                  </asp:TemplateField>
             </Columns>
              <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <HeaderStyle BackColor="#585858" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#2F588E" Font-Bold="True" ForeColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <AlternatingRowStyle BackColor="White" />
         </asp:GridView>
@@ -126,8 +142,10 @@
        
     
 
-            <a href="javascript:$('#<%=FileUpload1.ClientID%>').fileUploadStart()"  onclick="total(this)">Iniciar carga</a>&nbsp; 
-           |&nbsp;<a href="javascript:$('#<%=FileUpload1.ClientID%>').fileUploadClearQueue()">Limpiar lista</a> 
+            <a href="javascript:$('#<%=FileUpload1.ClientID%>').fileUploadStart()">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/img/upload3.png" /></a>&nbsp; 
+           |&nbsp;<a href="javascript:$('#<%=FileUpload1.ClientID%>').fileUploadClearQueue()"><asp:Image
+               ID="Image2" runat="server" ImageUrl="~/img/remove2.png" /></a> 
             <div style = "padding:40px">
                 <asp:FileUpload ID="FileUpload1" runat="server"/>
                 <br />
@@ -141,14 +159,12 @@
 
 <br />
 <script type = "text/javascript">
-    
     var usu = document.getElementById('<%= hfUsuario.ClientID %>').value;
     var sub = document.getElementById('<%= hfSub.ClientID %>').value;
     var cia = "CS";
     var clindc = document.getElementById('<%=txtCodigoCliente.ClientID%>').value;
     $(window).load(
     function() {
-        alert("se hizo");
         $("#<%=FileUpload1.ClientID%>").fileUpload({
             'uploader': 'js/uploader.swf',
             'cancelImg': 'img/cancel.png',
@@ -163,9 +179,5 @@
         });
     }
 );
-
-
-    function total(id) {
     
-    };
 </script>

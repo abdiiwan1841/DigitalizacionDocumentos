@@ -35,15 +35,16 @@
                     <img src="img/logo.png" alt="logo"/>
                 </div>
                 <div class="line"></div>  <!-- Dividing line -->
-                <div class="titulo"><u><a href="Login.aspx" id="A1" style="font-size:14pt;color:#fcfcfc;"><asp:Label ID="lblUsuario" runat="server" ToolTip="Click para cerrar sesión."></asp:Label></a></u></div>                
+                <div class="titulo"><u>
+                    <a href="Login.aspx" id="A1" style="font-size:14pt;color:#fcfcfc;">
+                    <asp:Label ID="lblUsuario" runat="server" ToolTip="Click para cerrar sesión."></asp:Label></a></u></div>                
                 
-                 <br />
-            <br />
-                <div class="nav clear"> <!-- The nav link semantically marks your main site navigation -->
+               
+                <%--<div class="nav clear"> <!-- The nav link semantically marks your main site navigation -->
                     <ul>
                         <li><a href="#article1">Digitalizaci&oacute;n</a></li>                        
                     </ul>
-                </div>
+                </div>--%>
             
             </div>
             <br />

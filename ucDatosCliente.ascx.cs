@@ -15,8 +15,15 @@ namespace DigitalizacionDocumentos
         {
             if (!Page.IsPostBack)
             {
-                hfUsuario.Value = Session["User"].ToString();
-                hfSub.Value = "FIN";
+                if (Request.QueryString.Count > 0)
+                {
+                    hfUsuario.Value=Request.QueryString["usuario"].ToString();
+                    txtCodigoCliente.Text = Request.QueryString["codigo"].ToString();
+
+                }else{
+                        hfUsuario.Value = Session["User"].ToString();
+                        hfSub.Value = "FIN";
+                    }
             }
 
         }
@@ -50,15 +57,15 @@ namespace DigitalizacionDocumentos
                     else if (codCliente.Trim().Length == 6)
                         qry = String.Format("select '' AS NDC, gclcod as CLIENTE, gclnom as NOMBRE, ( gcldir||gclcod||gclciu ) as DIRECCION, gclnit as nit, GCLTX1 as EMAIL from intgen.fgen035 where gclcod='{0}'", codCliente);
 
-                    qryDocumentos = @"select d.seq_documento as nodocumento, d.compania as compania, d.sub as area, t.descripcion as tipo_documento
-                            from documento d inner join tipo_documento t on d.tipodocumento=t.idTipoDocumento
-                            where d.codClienteNDC='000207'";
+                    qryDocumentos = @"select d.seqdocto as nodocumento, d.vcocia as compania, d.subare as area, t.nombretipo as tipo_documento, d.nombredoc
+                            from cdigen.twgen0003 d left join cdigen.twgen0002 t on d.idtipodoc=t.idtipodoc
+                            where d.clondc='{0}'  and UPPER(coalesce(d.estado,''))<>'X'";
 
                     DataTable dtDatosCliente = new DataTable();
                     dtDatosCliente = ad.RealizaConsulta(qry);
 
                     DataTable dtDocumentosCliente = new DataTable();
-                    dtDocumentosCliente = ad.MySQL_RealizaConsulta(qryDocumentos);
+                    dtDocumentosCliente = ad.RealizaConsulta(String.Format(qryDocumentos,txtCodigoCliente.Text));
 
 
                     if (dtDatosCliente != null && dtDatosCliente.Rows.Count > 0)
@@ -91,10 +98,7 @@ namespace DigitalizacionDocumentos
             {
                 Exception exception = arg_146_0;
                 MsgBox1.alert("Error al cargar los datos " + exception.Message);
-            }
-            finally {
-                Session["clindc"] = txtCodigoCliente.Text;
-            }
+            }            
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)

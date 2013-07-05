@@ -68,13 +68,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Digitalizacion.aspx.cs">
       <DependentUpon>Digitalizacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,8 +181,15 @@
     <Content Include="css\eggplant\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\eggplant\jquery-ui-1.8.18.custom.css" />
     <Content Include="css\style.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="img\boton1.png" />
+    <Content Include="img\boton2.png" />
+    <Content Include="img\file-excel.png" />
+    <Content Include="img\file-pdf.png" />
+    <Content Include="img\file-word.png" />
     <Content Include="img\file.ico" />
+    <Content Include="img\file3.png" />
+    <Content Include="img\remove2.png" />
+    <Content Include="img\upload3.png" />
     <Content Include="img\uploadify-cancel.png" />
     <Content Include="index.aspx" />
     <Content Include="js\CargaMultiple.js" />

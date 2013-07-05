@@ -7,7 +7,7 @@
 body{
 	/* Setting the default text color, size, page background and a font stack: */
 	font-size:0.825em;
-	color:#fcfcfc;
+	color: #fcfcfc;
 	background-color:#2F588E;
 	font-family:Arial, Helvetica, sans-serif;
 }
@@ -18,7 +18,8 @@ body{
     display:block;
     text-align:right;
     margin:10px;
-    color:White;
+    color: Black;
+    font-weight: bold;
 }
 
 #logindisplay a:link
@@ -175,16 +176,18 @@ div.nav, div.article, div.nav ul li a,div.figure{
 /* Article styles: */
 
 #page{
-	width:960px;
+	width:90%;
 	margin:0 auto;
 	position:relative;
 }
 
-div.article{
-	background-color:#244673;
+div.article
+{
+    color:Black;
+    font-weight:bold;
+	background-color: #E2EEF7;/*#244673;*/
 	margin:3em 0;
-	padding:20px;
-	
+	padding:20px;	
 	text-shadow:0 2px 0 black;
 }
 
@@ -262,6 +265,8 @@ div.logo
 
 div.control
 {
+    color: Black;
+    font-weight:bold;
     font-family:"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
 	font-size:1em;
 	font-weight:normal;
@@ -371,22 +376,60 @@ padding: 8px 14px 9px;
         }
         .accordionContent
         {
-            color:#fcfcfc;
-            background-color: #2F588E;
-            font-family: Verdana;
+            /*color: Black;/*#fcfcfc;*/
+            /*background-color: White; /*#2F588E;*/
+            /*font-family: Verdana;
             border: 1px gray; 
+            font-size: 11px;              
+            padding: 4px;
+            padding-top: 7px;*/
+            color: Black;
+            background-color: #E2EEF7;
+            font-family: Verdana;
+            border: 1px; 
+            border-color: #ABCEF0;
+            font-weight:bold;
             font-size: 11px;              
             padding: 4px;
             padding-top: 7px;
         }
         
         .boton{
-        font-size:11px;
+        /*font-size:11px;
         font-family:Verdana,Helvetica;
         font-weight:bold;
         color:white;
         background:#638cb5;
         border:0px;
         width:80px;
-        height:19px;
+        height:19px;*/
+            border-radius:5px;    
+    background-image:url(../img/boton1.png);
+    border:1px solid #37649C;
+    color:White;
+    Height:36px;
+    Width:auto;
+    cursor:pointer;    
+    padding-left:5px;
+    padding-right:5px;
+    margin-left: auto;
+                margin-right: auto;
+                margin-top:10px;
+                left:0;
+                right:0; 
+
+       }
+       .boton:hover
+       {
+           border-radius:5px;
+           border:1px solid #37649C;
+           background-image:url(../img/boton2.png);
+           color:#FFFFFF;  
+           Height:36px;
+           text-shadow:#3A71C0 1px 1px 1px;
+           Width:auto;
+           cursor:pointer;
+           padding-left:5px;
+           padding-right:5px;
+
        }

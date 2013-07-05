@@ -45,7 +45,7 @@
                                 onauthenticate="LoginFace_Authenticate" onloggingin="LoginFace_LoggingIn" 
                                 onloginerror="LoginFace_LoginError" DisplayRememberMe="False" 
                                 UserNameLabelText="Usuario:">
-                                <LoginButtonStyle CssClass="button medium verde" />
+                                <LoginButtonStyle CssClass="boton" />
                                 <ValidatorTextStyle Font-Bold="True" />
                                 <TitleTextStyle Font-Size="Large" />
                             </asp:Login>
@@ -55,11 +55,11 @@
 				<!-- Article 1 end -->
             </div>
             
-            <div class="ui-dialog">
+            <%--<div class="ui-dialog">
                     <div id="dialog-confirm" title="Abandonar p&aacute;gina">
 	                    <p>Esta seguro de abandonar el sitio actual?</p>
                     </div>
-             </div>
+             </div>--%>
              
         <div class="footer"> <!-- Marking the footer section -->
 
